@@ -59,6 +59,9 @@ var app = new Vue(
             clickThumb: function (indexThumb) {
                 this.indexCurrentImage = indexThumb;
             }
+        },
+        mounted: function() {
+            setInterval(this.nextImageCarousel, 3000)
         }
     }
 );
