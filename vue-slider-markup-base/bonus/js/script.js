@@ -68,7 +68,7 @@ var app = new Vue(
                 this.autoPlayClock = null;
             },
             startAutoPlay() {
-                this.autoPlayClock = setInterval(this.nextImageCarousel, 1000);
+                this.autoPlayClock = setInterval(this.nextImageCarousel, 3000);
             }
         },
         mounted: function autoPlayImage() {
