@@ -37,10 +37,11 @@ var app = new Vue(
                 }
             ],
             indexCurrentImage: 0,
-            isActive: false
+            isActive: false,
+            autoPlayClock: 0
         },
         methods: {
-            nextImageCarousel: function () {
+            nextImageCarousel() {
                 if (this.indexCurrentImage < this.slides.length-1) {
                     this.indexCurrentImage++;
                 } else {
@@ -48,7 +49,7 @@ var app = new Vue(
                 }
                 return this.indexCurrentImage;
             },
-            previousImageCarousel: function () {
+            previousImageCarousel() {
                 if (this.indexCurrentImage > 0) {
                     this.indexCurrentImage--;
                 } else {
@@ -56,12 +57,22 @@ var app = new Vue(
                 }
                 return this.indexCurrentImage;
             },
-            clickThumb: function (indexThumb) {
+            clickThumb(indexThumb) {
                 this.indexCurrentImage = indexThumb;
+            },
+            clickThumb(indexThumb) {
+                this.indexCurrentImage = indexThumb;
+            },
+            stopAutoPlay() {
+                clearInterval(this.autoPlayClock);
+                this.autoPlayClock = null;
+            },
+            startAutoPlay() {
+                this.autoPlayClock = setInterval(this.nextImageCarousel, 1000);
             }
         },
-        mounted: function() {
-            setInterval(this.nextImageCarousel, 3000)
+        mounted: function autoPlayImage() {
+            this.startAutoPlay();
         }
     }
 );
