@@ -67,6 +67,25 @@ var app = new Vue(
                 }
             ],
             indexCurrentImage: 0,
+            isActive: false
+        },
+        methods: {
+            nextImageCarousel: function () {
+                if (this.indexCurrentImage < this.slides.length-1) {
+                    this.indexCurrentImage++;
+                } else {
+                    this.indexCurrentImage = 0;    
+                }
+                return this.indexCurrentImage;
+            },
+            previousImageCarousel: function () {
+                if (this.indexCurrentImage > 0) {
+                    this.indexCurrentImage--;
+                } else {
+                    this.indexCurrentImage = this.slides.length-1;    
+                }
+                return this.indexCurrentImage;
+            }
         }
     }
 );

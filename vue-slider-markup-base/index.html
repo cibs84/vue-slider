@@ -25,10 +25,10 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
+                    <div class="prev" @click="previousImageCarousel()"></div>
+                    <div class="next" @click="nextImageCarousel()"></div>
                     <!-- STAMPARE TUTTI GLI ELEMENTI CON UN CICLO FOR MANTENENDO NELL'HTML SOLO UN ELEMENTO -->
-                    <div v-for="thisSlide in slides" class="thumb active">
+                    <div v-for="thisSlide in slides" class="thumb" :class="{active: isActive}">
                         <img :src="thisSlide.image" :alt="thisSlide.title"/>
                     </div>
                 </div>
