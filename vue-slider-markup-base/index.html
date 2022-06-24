@@ -24,11 +24,13 @@
                     </div>
                 </div>
 
+                <!-- Thumbs -->
                 <div class="thumbs">
+                    <!-- Buttons Arrow -->
                     <div class="prev" @click="previousImageCarousel()"></div>
                     <div class="next" @click="nextImageCarousel()"></div>
-                    <!-- STAMPARE TUTTI GLI ELEMENTI CON UN CICLO FOR MANTENENDO NELL'HTML SOLO UN ELEMENTO -->
-                    <div v-for="thisSlide in slides" class="thumb" :class="{active: isActive}">
+                    <!-- Images -->
+                    <div v-for="(thisSlide, thisIndex) in slides" class="thumb" :class="{active: thisIndex === indexCurrentImage}">
                         <img :src="thisSlide.image" :alt="thisSlide.title"/>
                     </div>
                 </div>
