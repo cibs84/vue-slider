@@ -55,6 +55,9 @@ var app = new Vue(
                     this.indexCurrentImage = this.slides.length-1;    
                 }
                 return this.indexCurrentImage;
+            },
+            clickThumb: function (indexThumb) {
+                this.indexCurrentImage = indexThumb;
             }
         }
     }

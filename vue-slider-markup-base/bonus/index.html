@@ -24,13 +24,13 @@
                     </div>
                 </div>
 
-                <!-- Thumbs -->
+                <!-- All Thumbs -->
                 <div class="thumbs">
                     <!-- Buttons Arrow -->
                     <div class="prev" @click="previousImageCarousel()"></div>
                     <div class="next" @click="nextImageCarousel()"></div>
-                    <!-- Images -->
-                    <div v-for="(thisSlide, thisIndex) in slides" class="thumb" :class="{active: thisIndex === indexCurrentImage}">
+                    <!-- Thumb -->
+                    <div v-for="(thisSlide, thisIndex) in slides" class="thumb" :class="{active: thisIndex === indexCurrentImage}" @click="clickThumb(thisIndex)">
                         <img :src="thisSlide.image" :alt="thisSlide.title"/>
                     </div>
                 </div>
